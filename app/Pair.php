@@ -38,10 +38,10 @@ class Pair extends Model
 
     public function sync($cl)
     {
-        $to_n = $this->to->currency_name;
-        $to_n = $this->from->currency_name;
-        $trnsform = $to_n.$to_n;
-        $this->exchange_ratio = json_decode($cl->live([$to_n]))->quotes->$trnsform;
+        $to_name   = $this->to->currency_name;
+        $from_name = $this->from->currency_name;
+        $transform = $to_name.$from_name;
+        $this->exchange_ratio = json_decode($cl->live([$to_name]))->quotes->$transform;
         $this->save();
     }
 
