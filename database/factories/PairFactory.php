@@ -8,6 +8,6 @@ $factory->define(App\Pair::class, function (Faker $faker) {
         'from_id' => factory('App\Currency'),
         'to_id'   => factory('App\Currency'),
         'duration'=> $faker->randomNumber(),
-        'exchange_ration' => $faker->randomFloat()
+        'exchange_ratio' => $faker->randomFloat()
     ];
 });

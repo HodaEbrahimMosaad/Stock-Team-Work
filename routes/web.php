@@ -1,9 +1,12 @@
 <?php
 
 
-Route::get('/', function (){
-   return view('welcome');
-});
-Auth::routes(['verify' => true]);
 
-Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
+
+Route::get('/', function (){return view('welcome');});
+
+// temp, to be deleted
+Route::get('/ho', 'HomeController@index');
+
+Route::resource('/home', 'PairController')->middleware('verified');
+Auth::routes(['verify' => true]);
