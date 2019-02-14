@@ -2,6 +2,8 @@
 
 namespace App;
 
+use Mail;
+use App\Mail\TriggerMet;
 use Illuminate\Database\Eloquent\Model;
 
 class Trigger extends Model
@@ -19,12 +21,12 @@ class Trigger extends Model
     }
 
     public function event(){
-    	return $this->belongsTo(EventType::class, 'event_type_id', 'id')->event_type_name;
+    	return $this->belongsTo(EventType::class, 'event_type_id', 'id');
     }
 
     public function isMet()
     {
-    	switch ($this->event()) {
+    	switch ($this->event->event_type_name) {
     		case 'less':
     			if($this->level < $this->pair->exchange_rate)
     				return true;

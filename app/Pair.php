@@ -22,7 +22,7 @@ class Pair extends Model
 
     public function to()
     {
-    	return $this->belongsTo(Currency::class, 'to_id');
+    	return $this->belongsTo(Currency::class, 'to_id', 'id');
     }
 
     public function triggers()
@@ -32,18 +32,23 @@ class Pair extends Model
 
     public function needsSync()
     {
-        if($this->updated_at->hour + $this->duration > Carbon::now()){
+        /*
+        $newDate = $this->updated_at;
+        $newDate->hour += $this->duration;
+        if($newDate > Carbon::now()){
             return true;
         }
         return false;
+        */
     }
 
     public function sync($cl)
     {
         $to_n = $this->to->currency_name;
         $to_n = $this->from->currency_name;
-        $trnsform = $to_n.$to_n;
-        $this->exchange_ratio = json_decode($cl->live([$to_n]))->quotes->$trnsform;
+        $transform = $to_n.$to_n;
+        $response = json_decode($cl->live([$to_n]));
+        $this->exchange_rate = $response->quotes->$transform;
         $this->save();
     }
 
