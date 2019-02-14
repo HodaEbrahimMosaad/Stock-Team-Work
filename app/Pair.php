@@ -8,9 +8,11 @@ use Carbon\Carbon;
 
 class Pair extends Model
 {
+    protected $guarded = [];
+
     public function owner()
     {
-    	return $this->belongsTo(User::class);
+    	return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
     public function from()
@@ -48,7 +50,7 @@ class Pair extends Model
 
     public static function syncIfNeeded($pairs, $cl)
     {
-        for($pairs as $pair)
+        foreach($pairs as $pair)
         {
             if($pair->needsSync())
             {
@@ -63,7 +65,7 @@ class Pair extends Model
             'from_id' => ['required', 'integer', 'exists:currencies,id'],
             'to_id'   => ['required', 'integer', 'exists:currencies,id'],
             'duration'=> ['required', 'integer'],
-            'exchange_ratio' => ['required', 'integer']
+            'exchange_rate' => ['required', 'integer']
         ]);
         return $attributes;
     }
