@@ -20,3 +20,15 @@ Currency::create(['currency_name'=>'KWD']);
 EventType::create(['event_type_name'=>'less']);
 EventType::create(['event_type_name'=>'more']);
 
+// verify users email
+use Carbon\Carbon;
+$u = User::first();
+$u->email_verified_at = Carbon::now();
+$u->save();
+
+// pair
+$pair = factory('App\Pair')->create(['user_id'=>$u->id]);
+
+// triggers
+factory('App\Trigger')->create(['user_id'=>$u->id, 'pair_id'=>$pair->id]);
+factory('App\Trigger')->create(['user_id'=>$u->id, 'pair_id'=>$pair->id]);
