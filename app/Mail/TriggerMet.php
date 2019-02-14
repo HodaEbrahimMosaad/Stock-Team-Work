@@ -33,6 +33,6 @@ class TriggerMet extends Mailable
     public function build()
     {
         $trigger = $this->trigger;
-        return $this->view('trigger.triggerMet', compact('trigger'));
+        return $this->view('triggers.triggerMet', compact('trigger'));
     }
 }
