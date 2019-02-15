@@ -1,0 +1,16 @@
+.right
+{
+    text-align: right;
+}
+.col
+{
+    color: #fff;
+}
+.profile
+{
+    width: 45%;
+    margin: 30px auto;
+    background-color: rgba(0, 0, 0, .6);
+    padding: 20px;
+    border-radius: 15px;
+}

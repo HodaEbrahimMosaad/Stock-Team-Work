@@ -1,0 +1,19 @@
+.row:nth-child(1),.row:nth-child(2),.row:nth-child(3){
+    width: 100%;
+}
+.row:nth-child(1)
+{
+    margin-top: 30px;
+}
+.row:nth-child(2)
+{
+    margin: auto;
+}
+.add
+{
+    margin: 13px 15px -50px;
+}
+.addDiv
+{
+    height: 90px;
+}

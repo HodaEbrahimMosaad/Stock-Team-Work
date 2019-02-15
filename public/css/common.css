@@ -1,0 +1,71 @@
+
+.daimond {
+    display: block;
+    background-color: white;
+    width: 10px;
+    height: 10px;
+    transform: rotate(45deg);
+    position: relative;
+    top: 3%;
+    left: 49.33%;
+    margin-bottom: 30px;
+}
+.daimond:before, .daimond:after {
+    content: "";
+    display: block;
+    width: 5px;
+    height: 80px;
+    transform: rotate(45deg);
+    position: absolute;
+}
+.daimond:before{
+    background-color: black;
+    top: 87%;
+    left: -430%;
+}
+.daimond:after {
+    background-color: black;
+    top: -822%;
+    right: -430%;
+}
+form
+{
+    width: 60%;
+    margin: 30px auto;
+    background-color: rgba(0, 0, 0, .6);
+    padding: 20px;
+    border-radius: 15px;
+}
+.form-control
+{
+    border: none;
+    border-bottom: 2px solid black;
+    border-radius: 0px;
+    background-color: transparent;
+    color: white;
+}
+.submit
+{
+    display: block;
+    margin: auto;
+}
+body
+{
+    background: linear-gradient(rgba(43, 49, 55, .1), rgba(43, 49, 55, .45)), url(https://images.pexels.com/photos/1037992/pexels-photo-1037992.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+.error
+{
+    color: red;
+}
+.mess .error
+{
+    color: green;
+}
+.mess {
+    margin: 20px auto;
+    text-align: center;
+    border: 1px solid green;
+    width: 200px;
+}
