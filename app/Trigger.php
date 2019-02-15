@@ -28,11 +28,11 @@ class Trigger extends Model
     {
     	switch ($this->event->event_type_name) {
     		case 'less':
-    			if($this->level < $this->pair->exchange_rate)
+    			if($this->pair->exchange_rate < $this->level)
     				return true;
     			break;
     		case 'more':
-    			if($this->level > $this->pair->exchange_rate)
+    			if($this->pair->exchange_rate > $this->level)
     				return true;
     			break;
     	}
@@ -48,5 +48,6 @@ class Trigger extends Model
     {
     	Mail::to($this->owner()->email)->queue(new TriggerMet($this));
     	$this->email_sent = true;
+        $this->save();
     }
 }
