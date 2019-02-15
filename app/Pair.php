@@ -44,17 +44,18 @@ class Pair extends Model
         $newDate = $this->updated_at;
         $newDate->hour += $this->duration;
         if($newDate > Carbon::now()){
-            return true;
+            return false;
         }
-        return false;
+        return true;
     }
 
     public function sync($cl)
     {
         $to_name   = $this->to->currency_name;
         $from_name = $this->from->currency_name;
-        $transform = $to_name.$from_name;
-        $this->exchange_rate = json_decode($cl->live([$to_name]))->quotes->$transform;
+        $transform = $from_name.$to_name;
+        $response = $cl->live([$to_name]);
+        $this->exchange_rate = $response->quotes->$transform;
         $this->save();
     }
 
