@@ -10,4 +10,8 @@ class Trigger extends Model
     {
     	return $this->belongsTo(Pair::class);
     }
+    public function event()
+    {
+        return$this->hasOne(EventType::class, 'id');
+    }
 }
