@@ -43,7 +43,7 @@ class CurrencyLayer
 
 	private function getBodyOrFail($response)
 	{
-		return $response->getBody()->getContents();
+		return json_decode($response->getBody()->getContents());
 	}
 }
 
