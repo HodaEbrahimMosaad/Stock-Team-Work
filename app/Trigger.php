@@ -49,4 +49,8 @@ class Trigger extends Model
     	Mail::to($this->owner()->email)->queue(new TriggerMet($this));
     	$this->email_sent = true;
     }
+    public function event()
+    {
+        return$this->hasOne(EventType::class, 'id');
+    }
 }

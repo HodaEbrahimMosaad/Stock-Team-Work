@@ -18,10 +18,9 @@ class CreatePairsTable extends Migration
             $table->unsignedInteger('user_id');
             $table->unsignedInteger('from_id');
             $table->unsignedInteger('to_id');
-
             $table->unsignedInteger('duration');
             $table->float('exchange_rate', 5, 3);
-
+            $table->softDeletes();
             $table->timestamps();
 
             // cant add the same pair for the same user twice

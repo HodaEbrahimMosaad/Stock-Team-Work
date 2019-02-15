@@ -1,6 +1,4 @@
 <?php
-
-
 if(!function_exists('get_session'))
 {
     function get_session($session)

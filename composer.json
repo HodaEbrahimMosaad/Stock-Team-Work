@@ -13,7 +13,9 @@
         "guzzlehttp/guzzle": "^6.3",
         "laravel/framework": "5.7.*",
         "laravel/tinker": "^1.0",
-        "yajra/laravel-datatables-oracle": "6.0"
+        "yajra/laravel-datatables-buttons": "3.*",
+        "yajra/laravel-datatables-html": "3.*",
+        "yajra/laravel-datatables-oracle": "8.*"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",
@@ -40,6 +42,9 @@
         "classmap": [
             "database/seeds",
             "database/factories"
+        ],
+        "files": [
+            "app/Http/functions/helper.php"
         ]
     },
     "autoload-dev": {

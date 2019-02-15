@@ -5,10 +5,19 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
 
 class Pair extends Model
 {
-    protected $guarded = [];
+    use SoftDeletes;
+
+    protected $table = 'pairs';
+    protected $fillable = [
+      "user_id", "from_id", "to_id", "duration", "exchange_rate"
+    ];
+
+    protected $dates = ['created_at', 'updated_at', 'deleted_at'];
 
     public function owner()
     {
@@ -32,23 +41,20 @@ class Pair extends Model
 
     public function needsSync()
     {
-        /*
         $newDate = $this->updated_at;
         $newDate->hour += $this->duration;
         if($newDate > Carbon::now()){
             return true;
         }
         return false;
-        */
     }
 
     public function sync($cl)
     {
-        $to_n = $this->to->currency_name;
-        $to_n = $this->from->currency_name;
-        $transform = $to_n.$to_n;
-        $response = json_decode($cl->live([$to_n]));
-        $this->exchange_rate = $response->quotes->$transform;
+        $to_name   = $this->to->currency_name;
+        $from_name = $this->from->currency_name;
+        $transform = $to_name.$from_name;
+        $this->exchange_rate = json_decode($cl->live([$to_name]))->quotes->$transform;
         $this->save();
     }
 

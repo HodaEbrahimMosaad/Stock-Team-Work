@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Currency;
 use App\Pair;
 use Illuminate\Http\Request;
 use App\Services\CurrencyLayer;
+//use Yajra\DataTables\DataTables;
 
 class PairController extends Controller
 {
@@ -19,12 +21,27 @@ class PairController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+//    public function getPairs(CurrencyLayer $cl)
+//    {
+//        $pairs = auth()->user()->pairs;
+//        Pair::syncIfNeeded($pairs, $cl);
+//        return  Datatables::of($pairs)->make(true);
+//    }
+//
+//    public function index()
+//    {
+//        //$pairs = auth()->user()->pairs;
+//        return view('pairs.index');
+//    }
+
     public function index(CurrencyLayer $cl)
     {
-        $pairs = auth()->user()->pairs;  
+        $pairs = auth()->user()->pairs;
         Pair::syncIfNeeded($pairs, $cl);
-        return view('pairs.index', compact('pairs'));
+        return  view('pairs.index', compact('pairs'));
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -33,7 +50,8 @@ class PairController extends Controller
      */
     public function create()
     {
-        return view('pairs.create');
+        $currencies = Currency::all();
+        return view('pairs.create', compact('currencies'));
     }
 
     /**
@@ -48,7 +66,8 @@ class PairController extends Controller
         $attributes['user_id'] = auth()->user()->id;
         $pair = Pair::create($attributes);
         $pair->sync($cl);
-        return redirect('/home');
+        session()->flash('suc', 'Pair has been Created suc');
+        return redirect(route('pairs.index'));
         //return redirect(route('index'));
     }
 
@@ -72,7 +91,11 @@ class PairController extends Controller
      */
     public function edit(Pair $pair)
     {
-        return view('pairs.edit', compact('pair'));
+        $currencies = Currency::all();
+        return view('pairs.edit')->with([
+            'currencies' => $currencies,
+            'pair' => $pair
+        ]);
     }
 
     /**
@@ -87,8 +110,8 @@ class PairController extends Controller
         $attributes = Pair::validate($request);
         $pair->update($attributes);
         $pair->sync($cl);
-        return redirect('/home');
-        //return redirect(route('index'));
+        session()->flash('suc', 'Pair has been Updated suc');
+        return redirect(route('pairs.index'));
     }
 
     /**
@@ -97,11 +120,12 @@ class PairController extends Controller
      * @param  \App\Pair  $pair
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pair $pair)
+    public function destroy(Request $request,Pair $pair)
     {
-        $pair->delete();
-        return redirect('/home');
-        //return redirect(route('index'));
+        $deleted = Pair::find($request->deletedId);
+        $deleted->delete();
+        session()->flash('suc', 'Pair has been Deleted suc');
+        return "done";
     }
 
 }
