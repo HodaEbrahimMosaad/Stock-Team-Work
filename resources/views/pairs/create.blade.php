@@ -16,9 +16,15 @@
                         From:
                     </option>
                     @foreach($currencies as $currency)
-                        <option value="{{ $currency->id }}">
-                            {{ $currency->currency_name }}
-                        </option>
+                        @if($currency->id == old('from_id'))
+                            <option value="{{ $currency->id }}" selected>
+                                {{ $currency->currency_name }}
+                            </option>
+                        @else
+                            <option value="{{ $currency->id }}">
+                                {{ $currency->currency_name }}
+                            </option>
+                        @endif
                     @endforeach
                 </select>
                 @if ( $errors->has('from_id'))
@@ -33,9 +39,15 @@
                         To:
                     </option>
                     @foreach($currencies as $currency)
-                        <option value="{{ $currency->id }}">
-                            {{ $currency->currency_name }}
-                        </option>
+                        @if($currency->id == old('to_id'))
+                            <option value="{{ $currency->id }}" selected>
+                                {{ $currency->currency_name }}
+                            </option>
+                        @else
+                            <option value="{{ $currency->id }}">
+                                {{ $currency->currency_name }}
+                            </option>
+                        @endif
                     @endforeach
                 </select>
                 @if ( $errors->has('to_id'))

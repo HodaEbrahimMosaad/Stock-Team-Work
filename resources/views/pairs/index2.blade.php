@@ -18,7 +18,7 @@
         $('#pairs-table').DataTable({
             processing: true,
             serverSide: true,
-            ajax: '{!! route('pairs') !!}',
+            ajax: '{!! route('pairs.index') !!}',
             columns: [
                 { data: 'id', name: 'id' },
 

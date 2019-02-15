@@ -6,7 +6,6 @@
 @endsection
 @section('content')
     <div class="col-md-10 test" style="margin: 20px auto; height: -webkit-fill-available" id="freshItems">
-        {!! get_session('suc') !!}
         <table id="myTable" class="table table-bordered table-hover">
             <thead class="thead-dark">
             <th>ID</th>
@@ -21,15 +20,15 @@
             @foreach( $pairs as $pair)
                 <tr>
                     <td>
-                        <a target="_blank" href="{{ route('pairs.show', $pair->id) }}}" >
+                        <a target="_blank" href="{{ route('pairs.show', $pair->id) }}" >
                             {{ $pair->id }}
                         </a>
                     </td>
                     <td>{{ $pair->owner->name }}</td>
                     <td>{{ $pair->from->currency_name }}</td>
                     <td>{{ $pair->to->currency_name }}</td>
-                    <td>{{ $pair->exchange_rate }}</td>
                     <td>{{ $pair->duration }}</td>
+                    <td>{{ $pair->exchange_rate }}</td>
                     <td>
                         <a target="_blank" class="btn btn-primary edit btn-sm" href="{{ route('pairs.edit', $pair->id) }}">
                             <i class="fa fa-edit">
@@ -49,7 +48,7 @@
         </table>
     </div>
 
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -62,7 +61,7 @@
                 </div>
 
                 <div class="modal-body">
-                    Delete Manager ?
+                    Delete Pair ?
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" id="delete">Delete</button>
