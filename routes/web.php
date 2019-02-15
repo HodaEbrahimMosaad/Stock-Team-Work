@@ -9,7 +9,9 @@ Route::get('/', function (){return view('welcome');});
 
 Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
 
-Route::resource('/pairs', 'PairController')->middleware('verified')->middleware('verified');
+
+Route::resource('/pairs', 'PairController')->middleware('verified');
+Route::get('/data', 'PairController@getPairs')->name('pairs');
 
 Route::resource('/triggers', 'TriggerController')->except(['index'])->middleware('verified');
 

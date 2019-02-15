@@ -8,13 +8,13 @@
     <div class="col-md-10 test" style="margin: 20px auto; height: -webkit-fill-available" id="freshItems">
         <table id="myTable" class="table table-bordered table-hover">
             <thead class="thead-dark">
-            <th>ID</th>
-            <th>Owner Name</th>
-            <th>From</th>
-            <th>To</th>
-            <th>Duration</th>
-            <th>Exchange Rate</th>
-            <th>Actions</th>
+                <th>ID</th>
+                <th>Owner Name</th>
+                <th>From</th>
+                <th>To</th>
+                <th>Duration</th>
+                <th>Exchange Rate</th>
+                <th>Actions</th>
             </thead>
             <tbody>
             @foreach( $pairs as $pair)

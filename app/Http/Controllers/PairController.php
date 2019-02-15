@@ -6,7 +6,7 @@ use App\Currency;
 use App\Pair;
 use Illuminate\Http\Request;
 use App\Services\CurrencyLayer;
-//use Yajra\DataTables\DataTables;
+use Yajra\DataTables\DataTables;
 
 class PairController extends Controller
 {
@@ -16,31 +16,36 @@ class PairController extends Controller
         // TODO: dispatch created, updated events if you want
         $this->middleware(['can:manage,pair'])->only(['show', 'edit', 'update', 'destroy']);
     }
+
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
 
-//    public function getPairs(CurrencyLayer $cl)
-//    {
-//        $pairs = auth()->user()->pairs;
-//        Pair::syncIfNeeded($pairs, $cl);
-//        return  Datatables::of($pairs)->make(true);
-//    }
-//
-//    public function index()
-//    {
-//        //$pairs = auth()->user()->pairs;
-//        return view('pairs.index');
-//    }
-
-    public function index(CurrencyLayer $cl)
+    public function getPairs(CurrencyLayer $cl)
     {
         $pairs = auth()->user()->pairs;
         Pair::syncIfNeeded($pairs, $cl);
-        return  view('pairs.index', compact('pairs'));
+        //return  Datatables::of($pairs)->make(true);
+        return DataTables::of($pairs)->addColumn('owner', function (Pair $pair) {
+                return $pair->owner->name;
+            })->toJson();
     }
+    public function index()
+    {
+        return view('pairs.index2');
+    }
+
+
+
+    /*public function index(CurrencyLayer $cl)
+    {
+        $pairs = auth()->user()->pairs;
+        Pair::syncIfNeeded($pairs, $cl);
+        return  view('pairs.index2', compact('pairs'));
+    }*/
 
 
     /**
