@@ -46,7 +46,7 @@ class Trigger extends Model
 
     public function notify()
     {
-    	Mail::to($this->owner())->queue(new TriggerMet($this));
+    	Mail::to($this->owner()->email)->queue(new TriggerMet($this));
     	$this->email_sent = true;
     }
 }

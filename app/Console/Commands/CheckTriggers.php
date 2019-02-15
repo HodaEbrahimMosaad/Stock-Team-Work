@@ -2,7 +2,9 @@
 
 namespace App\Console\Commands;
 
+use Mail;
 use App\Trigger;
+use App\Mail\TriggerMet;
 use Illuminate\Console\Command;
 
 class CheckTriggers extends Command
