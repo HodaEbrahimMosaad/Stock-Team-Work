@@ -5,12 +5,23 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
 
 class Pair extends Model
 {
+    use SoftDeletes;
+
+    protected $table = 'pairs';
+    protected $fillable = [
+      "user_id", "from_id", "to_id", "duration", "exchange_rate"
+    ];
+
+    protected $dates = ['created_at', 'updated_at', 'deleted_at'];
+
     public function owner()
     {
-    	return $this->belongsTo(User::class);
+    	return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
     public function from()
@@ -20,7 +31,7 @@ class Pair extends Model
 
     public function to()
     {
-    	return $this->belongsTo(Currency::class, 'to_id');
+    	return $this->belongsTo(Currency::class, 'to_id', 'id');
     }
 
     public function triggers()
@@ -30,25 +41,28 @@ class Pair extends Model
 
     public function needsSync()
     {
-        if($this->updated_at->hour + $this->duration > Carbon::now()){
-            return true;
+        $newDate = $this->updated_at;
+        $newDate->hour += $this->duration;
+        if($newDate > Carbon::now()){
+            return false;
         }
-        return false;
+        return true;
     }
 
     public function sync($cl)
     {
         $to_name   = $this->to->currency_name;
         $from_name = $this->from->currency_name;
-        $transform = $to_name.$from_name;
-        $this->exchange_ratio = json_decode($cl->live([$to_name]))->quotes->$transform;
+        $transform = $from_name.$to_name;
+        $response = $cl->live([$to_name]);
+        $this->exchange_rate = $response->quotes->$transform;
         $this->save();
     }
 
 
     public static function syncIfNeeded($pairs, $cl)
     {
-        for($pairs as $pair)
+        foreach($pairs as $pair)
         {
             if($pair->needsSync())
             {
@@ -63,7 +77,7 @@ class Pair extends Model
             'from_id' => ['required', 'integer', 'exists:currencies,id'],
             'to_id'   => ['required', 'integer', 'exists:currencies,id'],
             'duration'=> ['required', 'integer'],
-            'exchange_ratio' => ['required', 'integer']
+            'exchange_rate' => ['required', 'integer']
         ]);
         return $attributes;
     }

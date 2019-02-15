@@ -8,7 +8,7 @@ $factory->define(App\Trigger::class, function (Faker $faker) {
     return [
         'user_id' => $user->id,
         'pair_id' => $pair->id,
-        'event_type_id' => $faker->randomElement(['more', 'less']),
+        'event_type_id' => $faker->randomElement([1, 2]),
         'level' => $faker->randomNumber()
     ];
 });

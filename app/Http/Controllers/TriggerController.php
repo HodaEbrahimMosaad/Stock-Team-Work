@@ -7,24 +7,15 @@ use Illuminate\Http\Request;
 
 class TriggerController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+
+    public function view(Trigger $trigger)
     {
-        //
+        return view('triggers.view', compact('trigger'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view('triggers.create');
     }
 
     /**
@@ -35,18 +26,9 @@ class TriggerController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Trigger  $trigger
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Trigger $trigger)
-    {
-        //
+        $attributes = Trigger::validate($request);
+        $pair = Trigger::create($attributes);
+        return back();
     }
 
     /**
@@ -57,7 +39,7 @@ class TriggerController extends Controller
      */
     public function edit(Trigger $trigger)
     {
-        //
+        return view('triggers.edit', compact('trigger'));
     }
 
     /**
@@ -69,7 +51,9 @@ class TriggerController extends Controller
      */
     public function update(Request $request, Trigger $trigger)
     {
-        //
+        $attributes = Trigger::validate($request);
+        $trigger->update($attributes);
+        return back();
     }
 
     /**
@@ -80,6 +64,7 @@ class TriggerController extends Controller
      */
     public function destroy(Trigger $trigger)
     {
-        //
+        $trigger->delete();
+        return back();
     }
 }
