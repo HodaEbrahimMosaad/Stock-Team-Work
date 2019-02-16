@@ -21,7 +21,7 @@ class CreateTriggersTable extends Migration
             $table->unsignedInteger('level');
             $table->boolean('email_sent')->default(false);
             $table->timestamps();
-
+            $table->softDeletes();
             // cant add the same event for the same pair for the same user twice
             // or should it?
             $table->unique(['user_id', 'pair_id', 'event_type_id']);

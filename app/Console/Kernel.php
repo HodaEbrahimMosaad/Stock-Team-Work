@@ -3,8 +3,12 @@
 namespace App\Console;
 
 use \App\Pair;
+use App\Jobs\SendEmail;
+use App\Mail\SendEmailMailable;
+
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use Illuminate\Support\Facades\Mail;
 
 class Kernel extends ConsoleKernel
 {
@@ -14,7 +18,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        //'App\Console\Commands\cronEmail'
     ];
 
     /**

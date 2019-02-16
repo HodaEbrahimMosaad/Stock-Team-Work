@@ -76,8 +76,7 @@ class Pair extends Model
         $attributes = $request->validate([
             'from_id' => ['required', 'integer', 'exists:currencies,id'],
             'to_id'   => ['required', 'integer', 'exists:currencies,id'],
-            'duration'=> ['required', 'integer'],
-            'exchange_rate' => ['required', 'integer']
+            'duration'=> ['required', 'integer']
         ]);
         return $attributes;
     }

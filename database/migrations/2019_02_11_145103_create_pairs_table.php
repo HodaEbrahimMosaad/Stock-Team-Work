@@ -19,7 +19,7 @@ class CreatePairsTable extends Migration
             $table->unsignedInteger('from_id');
             $table->unsignedInteger('to_id');
             $table->unsignedInteger('duration');
-            $table->float('exchange_rate', 5, 3);
+            $table->float('exchange_rate', 5, 3)->default(0);
             $table->softDeletes();
             $table->timestamps();
 
