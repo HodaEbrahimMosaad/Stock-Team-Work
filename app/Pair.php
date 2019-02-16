@@ -49,6 +49,11 @@ class Pair extends Model
         return true;
     }
 
+    public function getHistory()
+    {
+        return PairHistory::where(['from_id'=>$this->from_id, 'to_id'=>$this->to_id])->get();
+    }
+
     public function sync($cl)
     {
         //save old to History
