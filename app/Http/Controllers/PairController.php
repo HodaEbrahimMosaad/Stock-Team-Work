@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Currency;
+use App\EventType;
 use App\Pair;
+use Exception;
 use Illuminate\Http\Request;
 use App\Services\CurrencyLayer;
 use Yajra\DataTables\DataTables;
@@ -18,6 +20,15 @@ class PairController extends Controller
     }
 
 
+    public function sync(Request $request, CurrencyLayer $cl)
+    {
+        $pairs = auth()->user()->pairs;
+        foreach ($pairs as $pair) {
+            $pair->sync($cl);
+        }
+        return back();
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -28,24 +39,30 @@ class PairController extends Controller
     {
         $pairs = auth()->user()->pairs;
         Pair::syncIfNeeded($pairs, $cl);
-        //return  Datatables::of($pairs)->make(true);
         return DataTables::of($pairs)->addColumn('owner', function (Pair $pair) {
                 return $pair->owner->name;
             })->toJson();
     }
-    public function index()
+    /*public function index()
     {
-        return view('pairs.index2');
-    }
+        return view('pairs.index');
+    }*/
 
 
 
-    /*public function index(CurrencyLayer $cl)
+    public function index(CurrencyLayer $cl)
     {
         $pairs = auth()->user()->pairs;
         Pair::syncIfNeeded($pairs, $cl);
-        return  view('pairs.index2', compact('pairs'));
-    }*/
+
+        $trashed_pairs = auth()->user()->pairs()->onlyTrashed()->get();
+        return  view('pairs.index')->with([
+            'pairs' => $pairs,
+            'trashed_pairs' => $trashed_pairs
+        ]);
+
+        return  view('pairs.index', compact(['pairs', 'trashed_pairs']));
+    }
 
 
     /**
@@ -69,9 +86,15 @@ class PairController extends Controller
     {
         $attributes = Pair::validate($request);
         $attributes['user_id'] = auth()->user()->id;
-        $pair = Pair::create($attributes);
-        $pair->sync($cl);
-        session()->flash('suc', 'Pair has been Created suc');
+        try {
+            $pair = Pair::create($attributes);
+            $pair->sync($cl);
+            session()->flash('suc', 'Pair has been Created suc');
+        } catch (Exception $ex) {
+            // throw $ex;
+            session()->flash('suc', 'Duplicate entry, If you want to use this pair again, restore it.');
+            return redirect(route('pairs.index'));
+        }
         return redirect(route('pairs.index'));
         //return redirect(route('index'));
     }
@@ -85,7 +108,13 @@ class PairController extends Controller
     public function show(Pair $pair, CurrencyLayer $cl)
     {
         Pair::syncIfNeeded([$pair], $cl);
-        return view('pairs.view', compact('pair'));
+        $events = EventType::all();
+        $trashed_triggers = $pair->triggers()->onlyTrashed()->get();
+        return view('pairs.view')->with([
+            'pair' => $pair,
+            'events' => $events,
+            'trashed_triggers' => $trashed_triggers
+    ]);
     }
 
     /**
@@ -125,12 +154,28 @@ class PairController extends Controller
      * @param  \App\Pair  $pair
      * @return \Illuminate\Http\Response
      */
+    public function per_destroy(Request $request)
+    {
+        if ($request->has('force_delete'))
+        {
+            Pair::where('id',$request->deletedId)->forceDelete();
+            session()->flash('suc', 'Pair has been Deleted Permanently');
+            return 'done';
+        }
+    }
     public function destroy(Request $request,Pair $pair)
     {
+
         $deleted = Pair::find($request->deletedId);
         $deleted->delete();
         session()->flash('suc', 'Pair has been Deleted suc');
         return "done";
     }
 
+    public function restore(Request $request)
+    {
+        Pair::where('id', $request->deletedId)->restore();
+        session()->flash('suc', 'Pair has been Restored suc');
+        return 'done';
+    }
 }

@@ -1,3 +1,4 @@
+@php $title='Add Pair'; @endphp
 @extends('layouts.app')
 @section('css')
     <link rel="stylesheet" href="{{ asset('css/common.css') }}">
@@ -64,14 +65,6 @@
                 @if ( $errors->has('duration'))
                     <span style="display: block;" class="invalid-feedback" role="alert">
                         <strong>{{ $errors->first('duration') }}</strong>
-                    </span>
-                @endif
-            </div>
-            <div class="col">
-                <input value="{{ old('exchange_rate') }}"  type="text" class="form-control" placeholder="Exchange Ratio" name="exchange_rate">
-                @if ( $errors->has('exchange_rate'))
-                    <span style="display: block;" class="invalid-feedback" role="alert">
-                        <strong>{{ $errors->first('exchange_rate') }}</strong>
                     </span>
                 @endif
             </div>

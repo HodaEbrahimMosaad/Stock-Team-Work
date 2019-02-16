@@ -49,8 +49,20 @@ class Pair extends Model
         return true;
     }
 
+    public function getHistory()
+    {
+        return PairHistory::where(['from_id'=>$this->from_id, 'to_id'=>$this->to_id])->get();
+    }
+
     public function sync($cl)
     {
+        //save old to History
+        PairHistory::create([
+            'from_id'=>$this->from_id,
+            'to_id'=>$this->to_id,
+            'exchange_rate'=>$this->exchange_rate
+        ]);
+
         $to_name   = $this->to->currency_name;
         $from_name = $this->from->currency_name;
         $transform = $from_name.$to_name;
@@ -76,8 +88,7 @@ class Pair extends Model
         $attributes = $request->validate([
             'from_id' => ['required', 'integer', 'exists:currencies,id'],
             'to_id'   => ['required', 'integer', 'exists:currencies,id'],
-            'duration'=> ['required', 'integer'],
-            'exchange_rate' => ['required', 'integer']
+            'duration'=> ['required', 'integer']
         ]);
         return $attributes;
     }
