@@ -2,8 +2,11 @@
 
 namespace App\Console;
 
+use App\Jobs\SendEmail;
+use App\Mail\SendEmailMailable;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use Illuminate\Support\Facades\Mail;
 
 class Kernel extends ConsoleKernel
 {
@@ -13,7 +16,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        //'App\Console\Commands\cronEmail'
     ];
 
     /**
@@ -24,8 +27,15 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
+//        $schedule->call( function() {
+//            SendEmail::dispatch()->delay(now()->addSeconds(5));
+//        })->everyMinute();
+//       $schedule->job(new SendEmail)->everyMinute();
+
+//        $schedule->call(function () {
+//
+//            SendEmail::dispatch()->delay(now()->addSeconds(5));
+//        })->everyMinute();
     }
 
     /**

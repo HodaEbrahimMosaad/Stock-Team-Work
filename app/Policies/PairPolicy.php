@@ -19,7 +19,7 @@ class PairPolicy
      */
     public function manage(User $user, Pair $pair)
     {
-        $user->owns($pair);
+        return $user->owns($pair);
     }
 
 }

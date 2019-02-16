@@ -72,11 +72,9 @@ class Pair extends Model
             'from_id' => ['required', 'integer', 'exists:currencies,id'],
             'to_id'   => ['required', 'integer', 'exists:currencies,id'],
             'duration'=> ['required', 'integer'],
-            'exchange_rate' => ['required', 'integer']
         ],[] ,[
             'from_id' => 'First Currency',
             'to_id' => 'Second Currency',
-            'exchange_rate' => 'Exchange Rate'
         ]);
         return $attributes;
     }
