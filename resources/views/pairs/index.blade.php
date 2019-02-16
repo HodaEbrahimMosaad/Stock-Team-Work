@@ -10,10 +10,17 @@
 @endsection
 @section('content')
     <div class="col-md-10 test" style="margin: 20px auto; height: -webkit-fill-available" id="freshItems">
-        <a class="addUser" href="{{ route('pairs.create') }}" target="_blank">
+        <a class="addPair" href="{{ route('pairs.create') }}" target="_blank">
             <button class="btn btn-primary">
                 <i class="fa fa-plus">
                     Add Pair
+                </i>
+            </button>
+        </a>
+        <a class="syncPairs" href="{{ route('pairs.sync') }}" target="_blank">
+            <button class="btn btn-primary">
+                <i class="fa fa-plus">
+                    Sync All
                 </i>
             </button>
         </a>

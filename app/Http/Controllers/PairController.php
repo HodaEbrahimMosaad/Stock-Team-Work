@@ -20,6 +20,15 @@ class PairController extends Controller
     }
 
 
+    public function sync(Request $request, CurrencyLayer $cl)
+    {
+        $pairs = auth()->user()->pairs;
+        foreach ($pairs as $pair) {
+            $pair->sync($cl);
+        }
+        return back();
+    }
+
     /**
      * Display a listing of the resource.
      *
