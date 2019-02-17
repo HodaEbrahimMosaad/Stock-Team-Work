@@ -44,9 +44,9 @@ class Pair extends Model
         $newDate = $this->updated_at;
         $newDate->hour += $this->duration;
         if($newDate < Carbon::now()){
-            return false;
+            return true;
         }
-        return true;
+        return false;
     }
 
     public function getHistory()
@@ -56,19 +56,19 @@ class Pair extends Model
 
     public function sync($cl)
     {
-        //save old to History
-        PairHistory::create([
-            'from_id'=>$this->from_id,
-            'to_id'=>$this->to_id,
-            'exchange_rate'=>$this->exchange_rate
-        ]);
-
         $to_name   = $this->to->currency_name;
         $from_name = $this->from->currency_name;
         $transform = $from_name.$to_name;
         $response = $cl->live([$to_name]);
         $this->exchange_rate = $response->quotes->$transform;
         $this->save();
+
+        //save old to History
+        PairHistory::create([
+            'from_id'=>$this->from_id,
+            'to_id'=>$this->to_id,
+            'exchange_rate'=>$this->exchange_rate
+        ]);
     }
 
 
