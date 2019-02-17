@@ -72,7 +72,11 @@
                             {{ $trigger->created_at->diffForHumans() }}
                         </div>
                     </div>
-
+                <button data-toggle="modal" data-target="#exampleModal" class="btn btn-dark submit">
+                    <i class="fa fa-submit">
+                        Edit
+                    </i>
+                </button>
             </div>
 
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

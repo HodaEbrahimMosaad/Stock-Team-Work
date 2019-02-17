@@ -5,10 +5,11 @@ namespace App\Http\Controllers;
 use App\Currency;
 use App\EventType;
 use App\Pair;
+use App\PairHistory;
 use Exception;
 use Illuminate\Http\Request;
 use App\Services\CurrencyLayer;
-//use Yajra\DataTables\DataTables;
+use Yajra\DataTables\DataTables;
 
 class PairController extends Controller
 {
@@ -18,34 +19,50 @@ class PairController extends Controller
         // TODO: dispatch created, updated events if you want
         $this->middleware(['can:manage,pair'])->only(['show', 'edit', 'update', 'destroy']);
     }
+
+
+    public function sync(Request $request, CurrencyLayer $cl)
+    {
+        $pairs = auth()->user()->pairs;
+        foreach ($pairs as $pair) {
+            $pair->sync($cl);
+        }
+        return back();
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
 
-//    public function getPairs(CurrencyLayer $cl)
-//    {
-//        $pairs = auth()->user()->pairs;
-//        Pair::syncIfNeeded($pairs, $cl);
-//        return  Datatables::of($pairs)->make(true);
-//    }
-//
-//    public function index()
-//    {
-//        //$pairs = auth()->user()->pairs;
-//        return view('pairs.index');
-//    }
+    public function getPairs(CurrencyLayer $cl)
+    {
+        $pairs = auth()->user()->pairs;
+        Pair::syncIfNeeded($pairs, $cl);
+        return DataTables::of($pairs)->addColumn('owner', function (Pair $pair) {
+            return $pair->owner->name;
+        })->toJson();
+    }
+    /*public function index()
+    {
+        return view('pairs.index');
+    }*/
+
+
 
     public function index(CurrencyLayer $cl)
     {
         $pairs = auth()->user()->pairs;
         Pair::syncIfNeeded($pairs, $cl);
+
         $trashed_pairs = auth()->user()->pairs()->onlyTrashed()->get();
         return  view('pairs.index')->with([
             'pairs' => $pairs,
             'trashed_pairs' => $trashed_pairs
         ]);
+
+        return  view('pairs.index', compact(['pairs', 'trashed_pairs']));
     }
 
 
@@ -72,13 +89,13 @@ class PairController extends Controller
         $attributes['user_id'] = auth()->user()->id;
         try {
             $pair = Pair::create($attributes);
+            $pair->sync($cl);
+            session()->flash('suc', 'Pair has been Created suc');
         } catch (Exception $ex) {
             // throw $ex;
             session()->flash('suc', 'Duplicate entry, If you want to use this pair again, restore it.');
             return redirect(route('pairs.index'));
         }
-        $pair->sync($cl);
-        session()->flash('suc', 'Pair has been Created suc');
         return redirect(route('pairs.index'));
         //return redirect(route('index'));
     }
@@ -91,14 +108,16 @@ class PairController extends Controller
      */
     public function show(Pair $pair, CurrencyLayer $cl)
     {
+        $pairs_data = PairHistory::where('from_id', $pair->from_id)->where('to_id', $pair->to_id)->pluck('exchange_rate');
         Pair::syncIfNeeded([$pair], $cl);
         $events = EventType::all();
         $trashed_triggers = $pair->triggers()->onlyTrashed()->get();
         return view('pairs.view')->with([
             'pair' => $pair,
             'events' => $events,
-            'trashed_triggers' => $trashed_triggers
-    ]);
+            'trashed_triggers' => $trashed_triggers,
+            'pairs_data' => $pairs_data
+        ]);
     }
 
     /**
