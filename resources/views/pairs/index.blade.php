@@ -69,48 +69,48 @@
             </tbody>
         </table>
         @if( count($trashed_pairs) > 0 )
-        <hr>
-        <div>
-            <h4  class="e1 text-center">Disabled Pair</h4>
-            <span class="daimond"></span>
-            <table style="" class="table table-bordered table-hover">
-                <thead class="thead-dark">
-                <th>ID</th>
-                <th>Owner Name</th>
-                <th>From</th>
-                <th>To</th>
-                <th>Duration</th>
-                <th>Exchange Rate</th>
-                <th>Actions</th>
-                </thead>
-                <tbody>
-                @foreach( $trashed_pairs as $trashed_pair)
-                    <tr>
-                        <td>
-                            {{ $trashed_pair->id }}
-                        </td>
-                        <td>{{ $trashed_pair->owner->name }}</td>
-                        <td>{{ $trashed_pair->from->currency_name }}</td>
-                        <td>{{ $trashed_pair->to->currency_name }}</td>
-                        <td>{{ $trashed_pair->duration }}</td>
-                        <td>{{ $trashed_pair->exchange_rate }}</td>
-                        <td>
-                            <a class="btn btn-success delete btn-sm" data-id="{{ $trashed_pair->id }}" id="restore" >
-                                <i class="fa fa-trash">
-                                    Restore
-                                </i>
-                            </a>
-                            <a class="btn btn-danger delete btn-sm" data-id="{{ $trashed_pair->id }}" id="force_delete" >
-                                <i class="fa fa-trash">
-                                    Permanently Delete
-                                </i>
-                            </a>
-                        </td>
-                    </tr>
-                @endforeach
-                </tbody>
-            </table>
-        </div>
+            <hr>
+            <div>
+                <h4  class="e1 text-center">Disabled Pair</h4>
+                <span class="daimond"></span>
+                <table style="" class="table table-bordered table-hover">
+                    <thead class="thead-dark">
+                    <th>ID</th>
+                    <th>Owner Name</th>
+                    <th>From</th>
+                    <th>To</th>
+                    <th>Duration</th>
+                    <th>Exchange Rate</th>
+                    <th>Actions</th>
+                    </thead>
+                    <tbody>
+                    @foreach( $trashed_pairs as $trashed_pair)
+                        <tr>
+                            <td>
+                                {{ $trashed_pair->id }}
+                            </td>
+                            <td>{{ $trashed_pair->owner->name }}</td>
+                            <td>{{ $trashed_pair->from->currency_name }}</td>
+                            <td>{{ $trashed_pair->to->currency_name }}</td>
+                            <td>{{ $trashed_pair->duration }}</td>
+                            <td>{{ $trashed_pair->exchange_rate }}</td>
+                            <td>
+                                <a class="btn btn-success delete btn-sm" data-id="{{ $trashed_pair->id }}" id="restore" >
+                                    <i class="fa fa-trash">
+                                        Restore
+                                    </i>
+                                </a>
+                                <a class="btn btn-danger delete btn-sm" data-id="{{ $trashed_pair->id }}" id="force_delete" >
+                                    <i class="fa fa-trash">
+                                        Permanently Delete
+                                    </i>
+                                </a>
+                            </td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
+            </div>
         @endif
     </div>
 
@@ -138,11 +138,9 @@
 @endsection
 @section('js')
     <script src="{{ asset('js/jquery.js') }}"></script>
-    {{--    <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>--}}
-    {{--    <script src="{{ asset('js/dataTable.bootstrap.min.js') }}"></script>--}}
+
     <script src="{{ asset('js/pair_delete_script.js') }}"></script>
     <script>
-        // $('#myTable').DataTable();
     </script>
 
 @endsection

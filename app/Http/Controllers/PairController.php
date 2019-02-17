@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Currency;
 use App\EventType;
 use App\Pair;
+use App\PairHistory;
 use Exception;
 use Illuminate\Http\Request;
 use App\Services\CurrencyLayer;
@@ -40,8 +41,8 @@ class PairController extends Controller
         $pairs = auth()->user()->pairs;
         Pair::syncIfNeeded($pairs, $cl);
         return DataTables::of($pairs)->addColumn('owner', function (Pair $pair) {
-                return $pair->owner->name;
-            })->toJson();
+            return $pair->owner->name;
+        })->toJson();
     }
     /*public function index()
     {
@@ -107,14 +108,16 @@ class PairController extends Controller
      */
     public function show(Pair $pair, CurrencyLayer $cl)
     {
+        $pairs_data = PairHistory::where('from_id', $pair->from_id)->where('to_id', $pair->to_id)->pluck('exchange_rate');
         Pair::syncIfNeeded([$pair], $cl);
         $events = EventType::all();
         $trashed_triggers = $pair->triggers()->onlyTrashed()->get();
         return view('pairs.view')->with([
             'pair' => $pair,
             'events' => $events,
-            'trashed_triggers' => $trashed_triggers
-    ]);
+            'trashed_triggers' => $trashed_triggers,
+            'pairs_data' => $pairs_data
+        ]);
     }
 
     /**
