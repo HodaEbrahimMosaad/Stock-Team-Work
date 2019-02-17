@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f07460ff-cb87-4e14-bc86-81340c223246" name="Default" comment="" />
+    <list default="true" id="f07460ff-cb87-4e14-bc86-81340c223246" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PairController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PairController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Pair.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Pair.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_02_11_145110_create_triggers_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_02_11_145110_create_triggers_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pairs/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pairs/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pairs/view.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pairs/view.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/triggers/view.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/triggers/view.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,36 +40,20 @@
       <file leaf-file-name="web.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="407">
-              <caret line="21" column="26" lean-forward="true" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
-              <folding>
-                <element signature="e#8#31#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="230">
+              <caret line="15" selection-start-line="15" selection-end-line="15" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.blade.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/pairs/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="23" column="8" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="8" />
+            <state relative-caret-position="217">
+              <caret line="7" selection-start-line="7" selection-end-line="7" />
               <folding>
-                <element signature="e#1206#1263#0#HTML" expanded="true" />
-                <element signature="e#1593#1614#0#HTML" expanded="true" />
-                <element signature="e#5691#5698#1#HTML" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TriggerController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/TriggerController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="47" column="14" selection-start-line="47" selection-start-column="14" selection-end-line="47" selection-end-column="14" />
-              <folding>
-                <element signature="e#40#58#0#PHP" expanded="true" />
+                <element signature="e#556#613#0#HTML" expanded="true" />
+                <element signature="e#1191#1212#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -69,28 +62,30 @@
       <file leaf-file-name="view.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/pairs/view.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="139">
-              <caret line="176" column="17" lean-forward="true" selection-start-line="176" selection-start-column="17" selection-end-line="176" selection-end-column="17" />
+            <state relative-caret-position="329">
+              <caret line="282" column="88" selection-start-line="282" selection-start-column="88" selection-end-line="282" selection-end-column="88" />
               <folding>
-                <element signature="e#2160#2260#0#HTML" expanded="true" />
-                <element signature="e#3416#3436#0#HTML" expanded="true" />
-                <element signature="e#4945#5045#0#HTML" expanded="true" />
-                <element signature="e#6703#6724#0#HTML" expanded="true" />
-                <element signature="e#4261#4282#0#HTML" expanded="true" />
-                <element signature="e#4327#4377#0#HTML" expanded="true" />
-                <element signature="e#4582#4603#0#HTML" expanded="true" />
-                <element signature="e#5578#5601#0#HTML" expanded="true" />
-                <element signature="e#6182#6205#0#HTML" expanded="true" />
+                <element signature="e#2091#2191#0#HTML" expanded="true" />
+                <element signature="e#3365#3386#0#HTML" expanded="true" />
+                <element signature="e#4234#4241#1#HTML" expanded="true" />
+                <element signature="e#4828#4928#0#HTML" expanded="true" />
+                <element signature="e#6539#6560#0#HTML" expanded="true" />
+                <element signature="e#7436#7443#1#HTML" expanded="true" />
+                <element signature="e#7587#7608#0#HTML" expanded="true" />
+                <element signature="e#7649#7699#0#HTML" expanded="true" />
+                <element signature="e#7840#7861#0#HTML" expanded="true" />
+                <element signature="e#8786#8809#0#HTML" expanded="true" />
+                <element signature="e#9366#9389#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="trigger_delete_script.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/js/trigger_delete_script.js">
+      <file leaf-file-name="chart.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/pairs/chart.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
-              <caret line="9" column="11" lean-forward="true" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
+            <state relative-caret-position="248">
+              <caret line="8" column="3" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -98,10 +93,31 @@
       <file leaf-file-name="PairController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PairController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="77" column="50" lean-forward="true" selection-start-line="74" selection-start-column="8" selection-end-line="77" selection-end-column="50" />
+            <state relative-caret-position="386">
+              <caret line="113" column="26" selection-start-line="113" selection-start-column="26" selection-end-line="113" selection-end-column="26" />
               <folding>
                 <element signature="e#40#57#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PairHistory.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/PairHistory.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="341">
+              <caret line="11" selection-start-line="11" selection-end-line="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="2019_02_14_122613_create_pairs_history_table.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/database/migrations/2019_02_14_122613_create_pairs_history_table.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="298">
+              <caret line="18" column="33" lean-forward="true" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
+              <folding>
+                <element signature="e#6#44#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -110,11 +126,20 @@
       <file leaf-file-name="Pair.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Pair.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="445">
-              <caret line="52" column="16" selection-start-line="52" selection-start-column="16" selection-end-line="52" selection-end-column="16" />
+            <state relative-caret-position="354">
+              <caret line="95" selection-start-line="95" selection-end-line="95" />
               <folding>
                 <element signature="e#23#62#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="create.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/pairs/create.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="268">
+              <caret line="62" column="24" selection-start-line="62" selection-start-column="24" selection-end-line="62" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -142,11 +167,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/../task_5/app/User.php" />
-        <option value="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" />
-        <option value="$PROJECT_DIR$/config/mail.php" />
-        <option value="$PROJECT_DIR$/resources/views/users/register.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/auth/register.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" />
         <option value="$PROJECT_DIR$/resources/views/layout/nav.blade.php" />
@@ -170,7 +190,6 @@
         <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/database/migrations/2019_02_11_145103_create_pairs_table.php" />
         <option value="$PROJECT_DIR$/app/Http/Middleware/Authenticate.php" />
-        <option value="$PROJECT_DIR$/app/Pair.php" />
         <option value="$PROJECT_DIR$/public/css/app.css" />
         <option value="$PROJECT_DIR$/public/css/common.css" />
         <option value="$PROJECT_DIR$/public/js/pair_delete_script.js" />
@@ -185,14 +204,20 @@
         <option value="$PROJECT_DIR$/app/Currency.php" />
         <option value="$PROJECT_DIR$/database/seeds/CurrenciesTableSeeder.php" />
         <option value="$PROJECT_DIR$/database/seeds/EventTypesTableSeeder.php" />
-        <option value="$PROJECT_DIR$/resources/views/triggers/view.blade.php" />
         <option value="$PROJECT_DIR$/app/Trigger.php" />
+        <option value="$PROJECT_DIR$/public/js/trigger_delete_script.js" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/TriggerController.php" />
+        <option value="$PROJECT_DIR$/resources/views/pairs/chart.html" />
+        <option value="$PROJECT_DIR$/resources/views/triggers/view.blade.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_02_11_145110_create_triggers_table.php" />
+        <option value="$PROJECT_DIR$/resources/views/pairs/chart.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/pairs/view.blade.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
-        <option value="$PROJECT_DIR$/public/js/trigger_delete_script.js" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/PairController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/TriggerController.php" />
+        <option value="$PROJECT_DIR$/app/Pair.php" />
         <option value="$PROJECT_DIR$/resources/views/pairs/index.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/PairController.php" />
+        <option value="$PROJECT_DIR$/app/PairHistory.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_02_17_000405_create_pair_histories_table.php" />
       </list>
     </option>
   </component>
@@ -441,6 +466,13 @@
             <path>
               <item name="stock" type="b2602c69:ProjectViewProjectNode" />
               <item name="stock" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="triggers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="stock" type="b2602c69:ProjectViewProjectNode" />
+              <item name="stock" type="462c0819:PsiDirectoryNode" />
               <item name="routes" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -499,12 +531,12 @@
       <workItem from="1549924089215" duration="6766000" />
       <workItem from="1550018386345" duration="5854000" />
       <workItem from="1550025469461" duration="540000" />
-      <workItem from="1550276542296" duration="20626000" />
+      <workItem from="1550276542296" duration="36235000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="91773000" />
+    <option name="totallyTimeSpent" value="107382000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -523,11 +555,11 @@
       <window_info anchor="bottom" id="Event Log" order="14" sideWeight="0.50067115" side_tool="true" weight="0.23708609" />
       <window_info anchor="right" id="Scheme.REPL" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="15" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="13" weight="0.32980132" />
+      <window_info anchor="bottom" id="Version Control" order="13" weight="0.22781457" />
       <window_info id="npm" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="16" sideWeight="0.49932885" visible="true" weight="0.28609273" />
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.25973153" />
+      <window_info anchor="bottom" id="Terminal" order="16" sideWeight="0.49932885" visible="true" weight="0.25165564" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.22348994" />
       <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
       <window_info anchor="right" id="Mathematica REPL" order="3" />
       <window_info anchor="right" id="Database" order="6" weight="0.3295302" />
@@ -556,41 +588,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../../task1/app/DataTables/AdminDatatable.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
-          <caret line="39" column="6" selection-start-line="39" selection-start-column="6" selection-end-line="39" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../task_5/resources/views/supplier/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="8" column="37" lean-forward="true" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/pairs/index2.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="16" column="10" lean-forward="true" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="32" column="13" lean-forward="true" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../task_5/app/Http/functions/helper.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="403">
-          <caret line="13" column="5" lean-forward="true" selection-start-line="10" selection-start-column="3" selection-end-line="13" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/css/profile_style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="186">
@@ -686,13 +683,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="203">
           <caret line="24" column="12" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_02_11_145103_create_pairs_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="21" column="1" lean-forward="true" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -824,24 +814,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/pairs/create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="65" column="17" lean-forward="true" selection-start-line="65" selection-start-column="17" selection-end-line="65" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/pairs/edit.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="21" column="35" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/triggers/view.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="119" column="42" lean-forward="true" selection-start-line="119" selection-start-column="42" selection-end-line="119" selection-end-column="42" />
         </state>
       </provider>
     </entry>
@@ -859,23 +835,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="21" column="26" lean-forward="true" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
-          <folding>
-            <element signature="e#8#31#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/trigger_delete_script.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="9" column="11" lean-forward="true" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Trigger.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="248">
@@ -886,62 +845,132 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Pair.php">
+    <entry file="file://$PROJECT_DIR$/app/Console/Kernel.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_02_11_145103_create_pairs_table.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="445">
-          <caret line="52" column="16" selection-start-line="52" selection-start-column="16" selection-end-line="52" selection-end-column="16" />
-          <folding>
-            <element signature="e#23#62#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="256">
+          <caret line="22" column="12" lean-forward="true" selection-start-line="22" selection-start-column="12" selection-end-line="22" selection-end-column="34" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PairController.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/pairs/create.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="77" column="50" lean-forward="true" selection-start-line="74" selection-start-column="8" selection-end-line="77" selection-end-column="50" />
-          <folding>
-            <element signature="e#40#57#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="268">
+          <caret line="62" column="24" selection-start-line="62" selection-start-column="24" selection-end-line="62" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/triggers/view.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="401">
+          <caret line="74" column="31" selection-start-line="74" selection-start-column="31" selection-end-line="74" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/trigger_delete_script.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="51" column="46" selection-start-line="51" selection-start-column="46" selection-end-line="51" selection-end-column="46" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/TriggerController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="47" column="14" selection-start-line="47" selection-start-column="14" selection-end-line="47" selection-end-column="14" />
+        <state relative-caret-position="217">
+          <caret line="122" column="5" lean-forward="true" selection-start-line="122" selection-start-column="5" selection-end-line="122" selection-end-column="5" />
           <folding>
             <element signature="e#40#58#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_02_11_145110_create_triggers_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="21" column="58" selection-start-line="21" selection-start-column="58" selection-end-line="21" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/pairs/chart.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="8" column="3" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/pairs/view.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="176" column="17" lean-forward="true" selection-start-line="176" selection-start-column="17" selection-end-line="176" selection-end-column="17" />
+        <state relative-caret-position="329">
+          <caret line="282" column="88" selection-start-line="282" selection-start-column="88" selection-end-line="282" selection-end-column="88" />
           <folding>
-            <element signature="e#2160#2260#0#HTML" expanded="true" />
-            <element signature="e#3416#3436#0#HTML" expanded="true" />
-            <element signature="e#4945#5045#0#HTML" expanded="true" />
-            <element signature="e#6703#6724#0#HTML" expanded="true" />
-            <element signature="e#4261#4282#0#HTML" expanded="true" />
-            <element signature="e#4327#4377#0#HTML" expanded="true" />
-            <element signature="e#4582#4603#0#HTML" expanded="true" />
-            <element signature="e#5578#5601#0#HTML" expanded="true" />
-            <element signature="e#6182#6205#0#HTML" expanded="true" />
+            <element signature="e#2091#2191#0#HTML" expanded="true" />
+            <element signature="e#3365#3386#0#HTML" expanded="true" />
+            <element signature="e#4234#4241#1#HTML" expanded="true" />
+            <element signature="e#4828#4928#0#HTML" expanded="true" />
+            <element signature="e#6539#6560#0#HTML" expanded="true" />
+            <element signature="e#7436#7443#1#HTML" expanded="true" />
+            <element signature="e#7587#7608#0#HTML" expanded="true" />
+            <element signature="e#7649#7699#0#HTML" expanded="true" />
+            <element signature="e#7840#7861#0#HTML" expanded="true" />
+            <element signature="e#8786#8809#0#HTML" expanded="true" />
+            <element signature="e#9366#9389#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Pair.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="95" selection-start-line="95" selection-end-line="95" />
+          <folding>
+            <element signature="e#23#62#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/pairs/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="23" column="8" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="8" />
+        <state relative-caret-position="217">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
           <folding>
-            <element signature="e#1206#1263#0#HTML" expanded="true" />
-            <element signature="e#1593#1614#0#HTML" expanded="true" />
-            <element signature="e#5691#5698#1#HTML" expanded="true" />
+            <element signature="e#556#613#0#HTML" expanded="true" />
+            <element signature="e#1191#1212#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PairController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="386">
+          <caret line="113" column="26" selection-start-line="113" selection-start-column="26" selection-end-line="113" selection-end-column="26" />
+          <folding>
+            <element signature="e#40#57#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/PairHistory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_02_14_122613_create_pairs_history_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="18" column="33" lean-forward="true" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
+          <folding>
+            <element signature="e#6#44#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>

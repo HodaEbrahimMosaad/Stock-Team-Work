@@ -7,10 +7,11 @@
         hr:last-of-type{display: none;}
         hr{border-top: 1px solid white;}
     </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
 @endsection
 @section('content')
 
-    <div class="profile">
         <h4 class="text-center">Pair</h4>
         <span class="daimond"></span>
         <div class="row">
@@ -256,8 +257,34 @@
         </button>
     </div>
     </div>
+    <div class="profile">
+        <canvas id="myChart">
+        </canvas>
+        <input id="pair_data" type="hidden" name="data[]" value="{{ $pairs_data }}">
+
+    </div>
+
 @endsection
 @section('js')
     <script src="{{ asset('js/jquery.js') }}"></script>
     <script src="{{ asset('js/trigger_delete_script.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+
+    <script>
+        var myChart = document.getElementById('myChart').getContext('2d');
+        var massPopChart = new Chart(myChart,{
+            type: 'bar',
+            data: {
+                labels: [ @for( $i=0; $i < count($pairs_data);$i++) {{ $i }} , @endfor],
+                datasets: [{
+                    label: "Exchange-rate",
+                    data: [ @for( $i=0; $i < count($pairs_data);$i++) {{ $pairs_data[$i] }} , @endfor]
+                    ,
+                }]
+            },
+            options: {
+
+            }
+        });
+    </script>
 @endsection

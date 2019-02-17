@@ -14,24 +14,24 @@ class Pair extends Model
 
     protected $table = 'pairs';
     protected $fillable = [
-      "user_id", "from_id", "to_id", "duration", "exchange_rate"
+        "user_id", "from_id", "to_id", "duration", "exchange_rate"
     ];
 
     protected $dates = ['created_at', 'updated_at', 'deleted_at'];
 
     public function owner()
     {
-    	return $this->belongsTo(User::class, 'user_id', 'id');
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
     public function from()
     {
-    	return $this->belongsTo(Currency::class, 'from_id');
+        return $this->belongsTo(Currency::class, 'from_id');
     }
 
     public function to()
     {
-    	return $this->belongsTo(Currency::class, 'to_id', 'id');
+        return $this->belongsTo(Currency::class, 'to_id', 'id');
     }
 
     public function triggers()

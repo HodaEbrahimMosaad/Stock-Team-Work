@@ -15,15 +15,12 @@ class CreatePairsHistoryTable extends Migration
     {
         Schema::create('pairs_history', function (Blueprint $table) {
             $table->increments('id');
-            
             $table->unsignedInteger('from_id');
             $table->unsignedInteger('to_id');
             $table->float('exchange_rate', 5, 3);
-
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *
