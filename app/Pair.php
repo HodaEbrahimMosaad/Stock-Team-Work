@@ -43,7 +43,7 @@ class Pair extends Model
     {
         $newDate = $this->updated_at;
         $newDate->hour += $this->duration;
-        if($newDate > Carbon::now()){
+        if($newDate < Carbon::now()){
             return false;
         }
         return true;

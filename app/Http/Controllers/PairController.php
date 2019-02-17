@@ -20,7 +20,6 @@ class PairController extends Controller
         $this->middleware(['can:manage,pair'])->only(['show', 'edit', 'update', 'destroy']);
     }
 
-
     public function sync(Request $request, CurrencyLayer $cl)
     {
         $pairs = auth()->user()->pairs;

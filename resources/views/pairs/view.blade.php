@@ -14,69 +14,69 @@
 
         <h4 class="text-center">Pair</h4>
         <span class="daimond"></span>
-        <div class="row">
+        <div class="row" style="text-align: center;">
             <div class="col">
                 Owner name:
             </div>
-            <div class="col right">
+            <div class="col center">
                 {{ $pair->owner->name }}
             </div>
         </div>
         <br>
-        <div class="row">
+        <div class="row" style="text-align: center;">
             <div class="col">
                 From:
             </div>
-            <div class="col right">
+            <div class="col center">
                 {{ $pair->from->currency_name }}
             </div>
         </div>
         <br>
-        <div class="row">
+        <div class="row" style="text-align: center;">
             <div class="col">
                 to :
             </div>
-            <div class="col right">
+            <div class="col center">
                 {{ $pair->to->currency_name }}
             </div>
         </div>
         <br>
-        <div class="row">
+        <div class="row" style="text-align: center;">
             <div class="col">
                 Exchange Rate
             </div>
-            <div class="col right">
+            <div class="col center">
                 {{ number_format((float)$pair->exchange_rate, 2) }}
             </div>
         </div>
         <br>
-        <div class="row">
+        <div class="row" style="text-align: center;">
             <div class="col">
                 Duration:
             </div>
-            <div class="col right">
+            <div class="col center">
                 {{ $pair->duration }}
             </div>
         </div>
         <br>
-        <div class="row">
+        <div class="row" style="text-align: center;">
             <div class="col">
                 Created At:
             </div>
-            <div class="col right">
+            <div class="col center">
                 {{ $pair->created_at->diffForHumans() }}
             </div>
         </div>
         <br>
-        <div class="row">
+        <div class="row" style="text-align: center;">
             <div class="col">
                 Updated At:
             </div>
-            <div class="col right">
+            <div class="col center">
                 {{ $pair->updated_at->diffForHumans() }}
             </div>
         </div>
-        <div  id="freshItems">
+        <div  id="freshItems"  style="text-align: center;">
         @if( count($pair->triggers) > 0 )
 
             <div class="profile" style="
