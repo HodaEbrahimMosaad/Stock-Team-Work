@@ -13,8 +13,8 @@ class EventTypesTableSeeder extends Seeder
     public function run()
     {
         $events = [
-            ['id' => 1, 'name' => 'less'],
-            ['id' => 2, 'name' => 'more']
+            ['id' => 1, 'event_type_name' => 'less'],
+            ['id' => 2, 'event_type_name' => 'more']
         ];
         foreach($events as $event){
             EventType::create($event);
